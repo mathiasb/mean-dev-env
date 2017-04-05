@@ -6,14 +6,34 @@ var helpers = require('./helpers');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-module.exports = webpackMerge(commonConfig, {
+module.exports = webpackMerge.smart(commonConfig, {
   devtool: 'source-map',
+
+  entry: {
+    'app': './src/main.aot.ts'
+  },
 
   output: {
     path: helpers.root('dist'),
     publicPath: '/',
-    filename: '[name].[hash].js',
+    filename: '[name].[hash].bundle.js',
     chunkFilename: '[id].[hash].chunk.js'
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        loaders: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: { configFileName: helpers.root('src', 'tsconfig.aot.json') }
+          },
+          'angular2-template-loader',
+          'angular2-router-loader?aot=true&genDir=dist'
+        ]
+      },
+    ]
   },
 
   plugins: [
@@ -21,7 +41,8 @@ module.exports = webpackMerge(commonConfig, {
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
       mangle: {
         keep_fnames: true
-      }
+      },
+      sourceMap: false
     }),
     new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({
@@ -36,4 +57,3 @@ module.exports = webpackMerge(commonConfig, {
     })
   ]
 });
-
