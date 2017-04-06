@@ -11,7 +11,8 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-      './config/karma-test-shim.js': ['webpack', 'sourcemap']
+      './config/karma-test-shim.js': ['webpack', 'sourcemap'],
+      '**/*.hbs': ['handlebars']
     },
 
     webpack: webpackConfig,
@@ -24,6 +25,21 @@ module.exports = function (config) {
       noInfo: true
     },
 
+    handlebarsPreprocessor: {
+      // name of the variable to store the templates hash
+      templates: "Handlebars.templates",
+
+      // translates original file path to template name
+      templateName: function(filepath) {
+        return filepath.replace(/^.*\/([^\/]+)\.hbs$/, '$1');
+      },
+
+      // transforms original file path to path of the processed file
+      transformPath: function(path) {
+        return path.replace(/\.hbs$/, '.js');
+      }
+    },
+    
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
