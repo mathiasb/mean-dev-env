@@ -1,8 +1,6 @@
 {
-  "server": {
-    "baseDir": "src",
-    "routes": {
-      "/node_modules": "node_modules"
-    }
-  }
+    "files" : "./src/**/*.{js, html, css, hbs}",
+    "server" : { "baseDir" : "./src" },
+    "https" : true,
+    "browser" : ["google-chrome", "firefox"]
 }
