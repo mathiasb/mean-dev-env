@@ -1,4 +1,20 @@
-<main>
-  <h1>Zing Dashboard</h1>
-  <app-main-menu></app-main-menu>
-</main>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <article class="panel panel-default">
+        <div class="panel-body">
+          {{ endpoint.name }}
+        </div>
+        <footer class="panel-footer">
+          <div class="status">
+            {{ endpoint.user }}
+          </div>
+          <div class="config">
+            <a href="#">Change</a>
+            <a href="#">Delete</a>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</div>
