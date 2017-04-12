@@ -1,0 +1,15 @@
+<article class="panel panel-default">
+  <input type="text" class="endpoint-input" [(ngModel)]="endpoint.name">
+  <div class="panel-body">
+    {{ endpoint.name }}
+  </div>
+  <footer class="panel-footer">
+    <div class="status">
+      {{ endpoint.type }}
+    </div>
+    <div class="config">
+      <a href="#">Change</a>
+      <a href="#">Delete</a>
+    </div>
+  </footer>
+</article>

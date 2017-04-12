@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Endpoint } from './models';
+
 import '../assets/css/styles.css';
 
 @Component({
@@ -8,8 +10,7 @@ import '../assets/css/styles.css';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  endpoint = {
-    name: 'Tictail Store XYZ123',
-    user: 'Matt'
-  };
+  title = 'Fred&Matt Backstage';
+
+  firstEndpoint: Endpoint = new Endpoint('Tictail XZY 123', 'Point of sale');
 }

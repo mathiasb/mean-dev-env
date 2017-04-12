@@ -7,9 +7,11 @@ import {
 
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './mainmenu.component';
+import { EndpointComponent } from './endpoints/endpoint.component';
 
 describe('Zing Dashboard App Component', () => {
 
@@ -21,7 +23,12 @@ describe('Zing Dashboard App Component', () => {
   // async beforeEach
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent, MainMenuComponent ], // declare the test component
+      imports: [ FormsModule ],
+      declarations: [
+        AppComponent,
+        MainMenuComponent,
+        EndpointComponent
+      ], // declare the test component
       providers: [
         { provide: ComponentFixtureAutoDetect, useValue: true }
       ]
@@ -37,17 +44,23 @@ describe('Zing Dashboard App Component', () => {
     expect(comp instanceof AppComponent).toBe(true, 'should create AppComponent');
   });
 
-  it ('should say Zing Dashboard in the header', () => {
+  it ('should say Fred&Matt Backstage in the header', () => {
 
     de = fixture.debugElement.query(By.css('h1'));
+
+    expect(de).not.toBeNull();
+
     el = de.nativeElement;
 
-    expect(el.textContent).toContain('Zing Dashboard');
+    expect(el.textContent).toContain('Fred&Matt Backstage');
   });
 
   it ('should contain a responsive main menu component', () => {
 
     de = fixture.debugElement.query(By.css('app-main-menu'));
+
+    expect(de).not.toBeNull();
+
     el = de.nativeElement;
 
     expect(de.componentInstance instanceof MainMenuComponent)
