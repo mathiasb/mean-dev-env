@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Endpoint } from '../models/endpoint.model';
+import { Endpoint } from '../models';
 
 @Component({
   selector: 'app-endpoint',
@@ -8,5 +8,5 @@ import { Endpoint } from '../models/endpoint.model';
   styleUrls: ['./endpoint.component.css']
 })
 export class EndpointComponent {
-  @Input() endpoint: Endpoint;
+  @Input('inputEndpoint') endpoint: Endpoint;
 }
