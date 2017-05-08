@@ -25,6 +25,7 @@
     "build:watch": "tsc -p src/ -w",
     "build:e2e": "tsc -p e2e/",
     "mongo": "mongod --dbpath /usr/local/data/db",
+    "check": "nsp check",
     "start": "concurrently \"npm run build:wpwatch\" \"node ./bin/www\"",
     "test": "concurrently \"npm run build:watch\" \"karma start karma.webpack.conf.js\"",
     "pretest:once": "npm run build",

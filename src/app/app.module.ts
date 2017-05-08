@@ -3,7 +3,13 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { EndpointComponent } from './endpoints/endpoint.component';
+import {
+  EndpointInputComponent,
+  EndpointListComponent,
+  EndpointComponent,
+  EndpointService
+} from './endpoints';
+import { MainMenuComponent } from './mainmenu.component';
 
 @NgModule({
   imports: [
@@ -12,7 +18,10 @@ import { EndpointComponent } from './endpoints/endpoint.component';
   ],
   declarations: [
     AppComponent,
-    EndpointComponent
+    EndpointComponent,
+    EndpointInputComponent,
+    EndpointListComponent,
+    MainMenuComponent
   ],
   bootstrap: [ AppComponent ]
 })

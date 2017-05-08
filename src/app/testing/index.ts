@@ -14,3 +14,6 @@ export function click(el: DebugElement | HTMLElement, eventObj: any = ButtonClic
     el.triggerEventHandler('click', eventObj);
   }
 }
+
+var td = require('./testdata.json');
+export const TestData = td;

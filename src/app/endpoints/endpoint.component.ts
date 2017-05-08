@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter
+ } from '@angular/core';
 
 import { Endpoint } from '../models';
 
@@ -8,5 +13,12 @@ import { Endpoint } from '../models';
   styleUrls: ['./endpoint.component.css']
 })
 export class EndpointComponent {
-  @Input('inputEndpoint') endpoint: Endpoint;
+  mycolor = 'light-gray';
+
+  @Input() endpoint: Endpoint;
+  @Output() changeClicked = new EventEmitter<string>()
+
+  onChange() {
+    this.changeClicked.emit('it worked!');
+  }
 }

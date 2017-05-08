@@ -1,0 +1,86 @@
+{
+  "application-data": {
+  	"port" : 4000,
+  	"mongo" : "mongodb://localhost:27017/test-ttbm",
+
+  	"user": {
+  		"code": "authcode_S71CGwO2VVKbneQOaeMTAJAynMiv5q",
+  		"id": "1",
+  		"type": "admin",
+  		"firstname": "Mathias",
+  		"lastname":"Bergqvist",
+  		"basegmail": "mathias.bergqvist",
+  		"email": "mathias.bergqvist+ttbmtest@gmail.com",
+
+  		"tictail": {
+  			"namespace": "infinite-fjord",
+  			"code": "authcode_S71CGwO2VVKbneQOaeMTAJAynMiv5q",
+  			"client_id": "clientid_jNzIVPBhl0uLgkfTByIKFYVLY0i1yj",
+  			"client_secret": "clientsecret_Cap9kgUIkBsQwRivJqX6vQIjaBKd1nSfnUS5w0WQDASHBOARD",
+  			"response_template": {
+  				"access_token": "accesstoken_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  				"token_type": "Bearer",
+  				"expires_in": 3155760000,
+  				"store": {
+  					"id": "t",
+  					"name": "Tawdry Stingray",
+  					"language": "en",
+  					"url": "http://tawdrystingray.tictail.com",
+  					"storekeeper_email": "mathias.bergqvist+ttbmtest@gmail.com",
+  					"created_at": null,
+  					"modified_at": null
+  				}
+  			}
+
+  		},
+  		"paypal": {
+  			"host" : "api.sandbox.paypal.com",
+  			"port" : "",
+  			"mode": "sandbox",
+  			"client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+  			"client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+  		},
+
+  		"wint": {},
+  		"klarna": {},
+  		"fortnox": {}
+  	}
+  },
+  "endpoints": [
+    {
+      "name": "Paypal ABC 124",
+      "type": "payment processor",
+      "baseUrl": "api.sandbox.paypal.com",
+      "client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+      "client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+    },
+    {
+      "name": "Paypal ABC 343",
+      "type": "payment processor",
+      "baseUrl": "api.sandbox.paypal.com",
+      "client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+      "client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+    },
+    {
+      "name": "Paypal ABC 544",
+      "type": "payment processor",
+      "baseUrl": "api.sandbox.paypal.com",
+      "client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+      "client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+    },
+    {
+      "name": "Paypal ABC 6545",
+      "type": "payment processor",
+      "baseUrl": "api.sandbox.paypal.com",
+      "client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+      "client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+    },
+    {
+      "name": "Paypal ABC 5464",
+      "type": "payment processor",
+      "baseUrl": "api.sandbox.paypal.com",
+      "client_id": "AYZfYK_Y4MrsfptkHOfWYFtJ5XpjDGrgHChFXs448oHnSA9fLhp1M_2BMv4ipyDJ45Rde_CE1CFv6m7p",
+      "client_secret": "EARS4K2zQxOgNawOEMoXX7xldDNQZFGvmCaphijKiDNyzNwGQHZv3DOUFB5XzEMPclL_Q2nL0PqxP8X4"
+    }
+  ]
+}

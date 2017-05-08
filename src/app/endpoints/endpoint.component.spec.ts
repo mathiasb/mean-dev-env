@@ -9,15 +9,22 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { click } from '../testing';
 import { EndpointComponent } from './endpoint.component';
 import { Endpoint } from '../models';
+
+import {
+  click,
+  TestData
+} from '../testing';
 
 describe('EndpointComponent', () => {
 
   let comp: EndpointComponent;
   let fixture: ComponentFixture<EndpointComponent>;
-  let de_input: DebugElement;
+  let body_de: DebugElement;
+  let status_de: DebugElement;
+  let config_de: DebugElement;
+
   let el_input: HTMLElement;
   let expectedEndpoint: Endpoint;
 
@@ -35,10 +42,17 @@ describe('EndpointComponent', () => {
     fixture = TestBed.createComponent(EndpointComponent);
     comp = fixture.componentInstance;
 
-    de_input = fixture.debugElement.query(By.css('.endpoint-input'));
-    el_input = de_input.nativeElement;
+    body_de = fixture.debugElement.query(By.css('.body'));
+    status_de = fixture.debugElement.query(By.css('.status'));
+    config_de = fixture.debugElement.query(By.css('.config'));
 
-    expectedEndpoint = new Endpoint('PayPal EFY453', 'payment gateway');
+    expectedEndpoint = new Endpoint(
+      TestData.endpoints[2].name,
+      TestData.endpoints[2].type,
+      TestData.endpoints[2].baseUrl,
+      TestData.endpoints[2].client_id,
+      TestData.endpoints[2].client_secret
+    );
     comp.endpoint = expectedEndpoint;
 
     fixture.detectChanges(); // trigger initial data binding
@@ -48,16 +62,9 @@ describe('EndpointComponent', () => {
     expect(comp instanceof EndpointComponent).toBe(true, 'should create EndpointComponent');
   });
 
-  it ('should contain an input field for an endpoint', () => {
-    expect(el_input).toBeDefined();
-    expect(el_input.nodeName.toLowerCase()).toEqual('input');
-  });
-
-  it ('should change text of the input field when changing component endpoint', () => {
-    let old_endpoint = comp.endpoint;
-    comp.endpoint = new Endpoint('WooCommerce ABC 123', 'Point of sale');
-    fixture.detectChanges();
-    expect(de_input.nativeElement.textContent).toContain('WooCommerce ABC 123', 'Should not be ' + old_endpoint.name);
+  it ('should contain the data from the example Endpoint', () => {
+    const expectedName = expectedEndpoint.name;
+    expect(body_de.nativeElement.textContent).toContain(expectedName);
   });
 
   it ('should display "it worked" when the Edit link is clicked', () => {
