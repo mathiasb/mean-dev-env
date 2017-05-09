@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Master package.json, the superset of all dependencies for all of the _example package.json files. See _boilerplate/package.json for example npm scripts.",
-  "scripts": {
+  "orig-scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
     "build:e2e": "tsc -p e2e/",
@@ -30,6 +30,15 @@
     "copy-dist-files": "node ./copy-dist-files.js",
     "i18n": "ng-xi18n"
   },
+  "scripts": {
+    "preserve:node": "rimraf serve/public && mkdir serve/public && webpack --config config/webpack.dev.js",
+    "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --bail",
+    "serve:node": "node serve/bin/www",
+    "serve:prod": "",
+    "share": "lt --port 4000 --subdomain zingzing",
+    "security-check": "nsp check",
+    "start": "npm-run-all --parallel security-check serve:node"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
@@ -47,9 +56,17 @@
     "@angular/tsc-wrapped": "^0.5.0",
     "@angular/upgrade": "2.4.5",
     "angular-in-memory-web-api": "~0.2.4",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "d3": "^4.7.4",
+    "debug": "^2.6.6",
+    "express": "^4.15.2",
+    "hbs": "^4.0.1",
+    "morgan": "^1.8.1",
+    "npm-run-all": "^4.0.2",
     "rxjs": "5.0.1",
+    "serve-favicon": "^2.4.2",
     "systemjs": "0.19.39",
     "zone.js": "^0.7.4"
   },
@@ -88,6 +105,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "lite-server": "^2.2.2",
+    "localtunnel": "^1.8.2",
     "lodash": "^4.16.2",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.7",
