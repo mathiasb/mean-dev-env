@@ -31,13 +31,19 @@
     "i18n": "ng-xi18n"
   },
   "scripts": {
-    "preserve:node": "rimraf serve/public && mkdir serve/public && webpack --config config/webpack.dev.js",
+    "lint": "tslint -c tslint.json ./src/**/*.ts",
+    "build:watch": "rimraf serve/public serve/views/index.hbs && mkdir serve/public && webpack --config config/webpack.dev.js --watch",
     "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --bail",
     "serve:node": "node serve/bin/www",
     "serve:prod": "",
-    "share": "lt --port 4000 --subdomain zingzing",
+    "share:test": "lt --port 9876 --subdomain zing-test",
+    "share:dev": "lt --port 4000 --subdomain zing-dev",
     "security-check": "nsp check",
-    "start": "npm-run-all --parallel security-check serve:node"
+    "test:once": "",
+    "test:webpack": "karma start karma.webpack.conf.js",
+    "test": "npm run test:once",
+    "start:dev": "npm-run-all --parallel build:watch security-check lint serve:node",
+    "start": "npm run start:dev"
   },
   "keywords": [],
   "author": "",
@@ -89,6 +95,9 @@
     "canonical-path": "0.0.2",
     "concurrently": "^3.0.0",
     "css-loader": "^0.26.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-watch": "^3.1.0",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
