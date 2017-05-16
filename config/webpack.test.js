@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var helpers = require('./helpers');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -15,7 +16,7 @@ module.exports = {
         loaders: [
           {
             loader: 'awesome-typescript-loader',
-            options: { configFileName: helpers.root('src', 'tsconfig.json') }
+            options: { configFileName: helpers.root('tsconfig.json') }
           } , 'angular2-template-loader'
         ]
       },
@@ -47,7 +48,13 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       helpers.root('./src'), // location of your src
       {} // a map of your routes
-    )
+    ),
+    
+    new HtmlWebpackPlugin({
+      template: 'src/index.hbs',
+      filename: 'index.html'
+    })
+
   ]
 }
 

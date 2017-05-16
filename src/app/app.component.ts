@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { EndpointService } from './endpoints/endpoint.service';
 
-//import '../assets/css/styles.css';
+// import '../assets/css/styles.css';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +11,6 @@ import { EndpointService } from './endpoints/endpoint.service';
   providers: [EndpointService]
 })
 export class AppComponent {
-  constructor(private endpointService: EndpointService) {}
-
   title = 'Fred&Matt Backstage';
+  constructor(private endpointService: EndpointService) {}
 }
