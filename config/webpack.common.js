@@ -5,9 +5,9 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'polyfills': './ng-assets/polyfills.ts',
+    'vendor': './ng-assets/vendor.ts',
+    'app': './ng-assets/main.ts'
   },
 
   resolve: {
@@ -36,12 +36,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
+        exclude: helpers.root('ng-assets', 'app'),
         loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
       },
       {
         test: /\.css$/,
-        include: helpers.root('src', 'app'),
+        include: helpers.root('ng-assets', 'app'),
         loader: 'raw-loader'
       }
     ]
@@ -52,7 +52,7 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      helpers.root('./src'), // location of your src
+      helpers.root('./ng-assets'), // location of your src
       {} // a map of your routes
     ),
 
@@ -61,8 +61,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.hbs',
-      filename: '../views/index.hbs'
+      template: 'serve/views/index.hbs',
+      filename: '../views/_index.hbs'
     })
   ]
 };
