@@ -31,12 +31,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
+        exclude: helpers.root('ng-assets', 'app'),
         loader: 'null-loader'
       },
       {
         test: /\.css$/,
-        include: helpers.root('src', 'app'),
+        include: helpers.root('ng-assets', 'app'),
         loader: 'raw-loader'
       }
     ]
@@ -46,15 +46,14 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      helpers.root('./src'), // location of your src
+      helpers.root('./ng-assets'), // location of your src
       {} // a map of your routes
     ),
-    
+
     new HtmlWebpackPlugin({
-      template: 'src/index.hbs',
-      filename: 'index.html'
+      template: 'serve/views/index.hbs',
+      filename: 'serve/views/_index.html'
     })
 
   ]
 }
-
