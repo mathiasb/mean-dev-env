@@ -2,6 +2,8 @@
 
 # compiled output
 /dist
+/serve/public
+/serve/views/_index.hbs
 /tmp
 
 # dependencies
@@ -39,6 +41,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/src/**/*.js
-/src/**/*.map
-/ngtesting
+/ng-assets/**/*.js
+/ng-assets/**/*.map
