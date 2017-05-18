@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { WebApiService } from './web-api.service';
+import { UserListComponent } from './auth/user-list.component';
+import { UserComponent } from './auth/user.component';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent,
+    UserComponent
   ],
-  providers: [],
+  providers: [
+    WebApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
