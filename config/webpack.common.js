@@ -62,7 +62,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'serve/views/index.hbs',
-      filename: '../views/_index.hbs'
+      filename: '../serve/views/_index.hbs'
     })
   ]
 };
