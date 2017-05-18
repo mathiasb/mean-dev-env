@@ -25,7 +25,7 @@
   },
   "scripts": {
     "lint": "tslint -c tslint.json ./ng-assets/**/*.ts",
-    "premockapi": "babel-node serve/bin/mockdb.js",
+    "premockapi": "del-cli tmp/db.json && babel-node serve/bin/mockdb.js",
     "mockapi": "json-server --watch tmp/db.json --port 4001",
     "build:watch": "rimraf dist && mkdir dist && webpack --config config/webpack.dev.js --watch",
     "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --bail",
@@ -66,6 +66,7 @@
     "core-js": "^2.4.1",
     "d3": "^4.7.4",
     "debug": "^2.6.6",
+    "del-cli": "^1.0.0",
     "express": "^4.15.2",
     "hbs": "^4.0.1",
     "mongoose": "^4.9.9",

@@ -45,6 +45,7 @@ var UserMockSchema = {
   }
 };
 
+var userData = UserMockSchema.properties.user;
 var UsersMockSchema = {
   type: 'object',
   properties: {
@@ -52,33 +53,7 @@ var UsersMockSchema = {
       type: 'array',
       minItems: 4,
       maxItems: 9,
-      items: {
-        type: 'object',
-        properties: {
-          userId: {
-            type: 'integer',
-            unique: true,
-            minimum: 10001
-          },
-          firstName:{
-            type: 'string',
-            faker: 'name.firstName'
-          },
-          lastName:{
-            type: 'string',
-            faker: 'name.lastName'
-          },
-          email:{
-            type: 'string',
-            format: 'email',
-            faker: 'internet.email'
-          },
-          password:{
-            type: 'string'
-          }
-        },
-        required: ['userId', 'firstName', 'lastName', 'email', 'password']
-      }
+      items: userData
     }
   }
 };
