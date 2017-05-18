@@ -12,4 +12,76 @@ var schema = new Schema({
 
 schema.plugin(mongooseUniqueValidator);
 
-module.exports = mongoose.model('User', schema);
+var UserMockSchema = {
+  type: 'object',
+  properties: {
+    user: {
+      type: 'object',
+      properties: {
+        userId: {
+          type: 'integer',
+          unique: true,
+          minimum: 10001
+        },
+        firstName:{
+          type: 'string',
+          faker: 'name.firstName'
+        },
+        lastName:{
+          type: 'string',
+          faker: 'name.lastName'
+        },
+        email:{
+          type: 'string',
+          format: 'email',
+          faker: 'internet.email'
+        },
+        password:{
+          type: 'string'
+        }
+      },
+      required: ['userId', 'firstName', 'lastName', 'email', 'password']
+    }
+  }
+};
+
+var UsersMockSchema = {
+  type: 'object',
+  properties: {
+    users: {
+      type: 'array',
+      minItems: 4,
+      maxItems: 9,
+      items: {
+        type: 'object',
+        properties: {
+          userId: {
+            type: 'integer',
+            unique: true,
+            minimum: 10001
+          },
+          firstName:{
+            type: 'string',
+            faker: 'name.firstName'
+          },
+          lastName:{
+            type: 'string',
+            faker: 'name.lastName'
+          },
+          email:{
+            type: 'string',
+            format: 'email',
+            faker: 'internet.email'
+          },
+          password:{
+            type: 'string'
+          }
+        },
+        required: ['userId', 'firstName', 'lastName', 'email', 'password']
+      }
+    }
+  }
+};
+
+var User = mongoose.model('User', schema);
+module.exports = { User, UserMockSchema, UsersMockSchema }
