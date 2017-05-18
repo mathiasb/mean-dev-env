@@ -45,18 +45,5 @@ var UserMockSchema = {
   }
 };
 
-var userData = UserMockSchema.properties.user;
-var UsersMockSchema = {
-  type: 'object',
-  properties: {
-    users: {
-      type: 'array',
-      minItems: 4,
-      maxItems: 9,
-      items: userData
-    }
-  }
-};
-
 var User = mongoose.model('User', schema);
-module.exports = { User, UserMockSchema, UsersMockSchema }
+module.exports = { User, UserMockSchema }
