@@ -5,9 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var cors = require('cors');
 
 var appRoutes = require('./routes/app');
 
+var corsOptions = {
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept'
+};
 var app = express();
 mongoose.connect('localhost:27017/zingdb-tst');
 
@@ -23,18 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.use(function (req, res, next) {
+/* app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
     next();
-});
+}); */
+app.use(cors(corsOptions));
 
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log('In ERROR HANDLING');
   res.render('_index');
 });
 
