@@ -3,15 +3,22 @@ var web_api = require('../webapi/api-handler');
 
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('_index', { title: 'My Dashboard' });
+router.delete('/users/:userId', function(req, res, next) {
+  var user = web_api.deleteUser(req.params.userId);
+  console.log('In DELETE USER ' + req.params.userId);
+  res.redirect('/users');
 });
 
 router.get('/users', function(req, res, next) {
   var userList = web_api.getUsers();
+  console.log('In GET USERS');
   res.send(userList);
-//  res.render('_index', { users: userList });
+});
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  console.log('In GET /');
+  res.render('_index', { title: 'My Dashboard' });
 });
 
 module.exports = router;

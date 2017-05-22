@@ -4,9 +4,11 @@ import {
   OnInit } from '@angular/core';
 
 import { User } from '../models';
+import { WebApiService } from '../web-api.service';
 
 @Component({
   selector: 'app-user',
+  providers:[WebApiService],
   template: `
     <article class="panel panel-default">
       <div class="panel-body">
@@ -18,7 +20,7 @@ import { User } from '../models';
         </div>
         <div class="config">
           <a href="#" (click)="onChange()">Reset password</a>
-          <a href="#">Cancel account</a>
+          <a href="#" (click)="removeUser()">Cancel account</a>
         </div>
       </footer>
     </article>
@@ -42,5 +44,11 @@ import { User } from '../models';
 export class UserComponent implements OnInit {
   @Input() user: User;
 
+  constructor(private web_api: WebApiService) {}
+
   ngOnInit() {}
+
+  removeUser() {
+    this.web_api.deleteUser(this.user);
+  }
 }

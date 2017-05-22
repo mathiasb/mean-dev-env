@@ -18,7 +18,7 @@ var UserMockSchema = {
     user: {
       type: 'object',
       properties: {
-        userId: {
+        id: {
           type: 'integer',
           unique: true,
           minimum: 10001
@@ -40,7 +40,7 @@ var UserMockSchema = {
           type: 'string'
         }
       },
-      required: ['userId', 'firstName', 'lastName', 'email', 'password']
+      required: ['id', 'firstName', 'lastName', 'email', 'password']
     }
   }
 };

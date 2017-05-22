@@ -34,9 +34,8 @@
     "share:test": "lt --port 9876 --subdomain zing-test",
     "share:dev": "lt --port 4000 --subdomain zing-dev",
     "security-check": "nsp check",
-    "test:once": "",
     "test:webpack": "karma start karma.webpack.conf.js",
-    "test": "npm run test:once",
+    "test": "npm run test:webpack -- --single-run",
     "start:dev": "npm-run-all --parallel build:watch security-check serve:node mockapi",
     "start": "npm run start:dev"
   },

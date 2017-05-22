@@ -34,6 +34,7 @@ app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log('In ERROR HANDLING');
   res.render('_index');
 });
 
