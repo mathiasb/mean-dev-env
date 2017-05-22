@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -5,9 +6,9 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './ng-assets/polyfills.ts',
-    'vendor': './ng-assets/vendor.ts',
-    'app': './ng-assets/main.ts'
+    'polyfills': helpers.root('ng-assets/polyfills'),
+    'vendor': helpers.root('ng-assets/vendor'),
+    'app': helpers.root('ng-assets/main')
   },
 
   resolve: {
@@ -32,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file-loader?name=assets/[name].[hash].[ext]'
+        loader: 'file-loader?name=img/[name].[hash].[ext]'
       },
       {
         test: /\.css$/,

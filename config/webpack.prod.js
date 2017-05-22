@@ -10,7 +10,7 @@ module.exports = webpackMerge.smart(commonConfig, {
   devtool: 'source-map',
 
   entry: {
-    'app': './src/main.aot.ts'
+    'app': helpers.root('ng-assets/main.aot.ts')
   },
 
   output: {
@@ -27,7 +27,7 @@ module.exports = webpackMerge.smart(commonConfig, {
         loaders: [
           {
             loader: 'awesome-typescript-loader',
-            options: { configFileName: helpers.root('src', 'tsconfig.aot.json') }
+            options: { configFileName: helpers.root('tsconfig.prod.json') }
           },
           'angular2-template-loader',
           'angular2-router-loader?aot=true&genDir=dist'
