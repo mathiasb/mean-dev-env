@@ -51,8 +51,7 @@ module.exports = {
     ),
 
     new HtmlWebpackPlugin({
-      template: 'serve/views/index.hbs',
-      filename: 'serve/views/_index.html'
+      template: helpers.root('test', 'index.html')
     })
 
   ]

@@ -51,4 +51,8 @@ export class UserComponent implements OnInit {
   removeUser() {
     this.web_api.deleteUser(this.user);
   }
+
+  onChange() {
+
+  }
 }

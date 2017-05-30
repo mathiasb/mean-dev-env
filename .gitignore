@@ -41,5 +41,12 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Local development
 /ng-assets/**/*.js
 /ng-assets/**/*.map
+*.env
+*.dev
+
+# Docker
+Dockerfile
+docker-compose.yml

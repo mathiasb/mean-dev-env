@@ -1,17 +1,3 @@
-var mongoose = require('mongoose');
-var mongooseUniqueValidator = require('mongoose-unique-validator');
-var Schema = mongoose.Schema;
-
-var schema = new Schema({
-  firstName: {type: String, required: true},
-  lastName: {type: String, required: true},
-  email: {type: String, required: true, unique:true},
-  password: {type: String, required: true},
-  endpoints: [{type: Schema.Types.ObjectId, ref: 'Endpoint'}]
-});
-
-schema.plugin(mongooseUniqueValidator);
-
 var UserMockSchema = {
   type: 'object',
   properties: {
@@ -45,5 +31,4 @@ var UserMockSchema = {
   }
 };
 
-var User = mongoose.model('User', schema);
-module.exports = { User, UserMockSchema }
+module.exports = { UserMockSchema }

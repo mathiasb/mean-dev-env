@@ -17,7 +17,7 @@ import { User } from '../models';
   `
 })
 export class UserListComponent implements OnInit {
-  private users: User[] = [];
+  users: User[] = [];
 
   constructor(private webapi: WebApiService) {
   }

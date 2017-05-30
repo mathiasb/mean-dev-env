@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
@@ -14,8 +15,8 @@ module.exports = webpackMerge.smart(commonConfig, {
   },
 
   output: {
-    path: helpers.root('dist'),
-    publicPath: '/',
+    path: helpers.root('dist', 'js', 'app'),
+    publicPath: '/js/app',
     filename: '[name].[hash].bundle.js',
     chunkFilename: '[id].[hash].chunk.js'
   },
@@ -30,7 +31,7 @@ module.exports = webpackMerge.smart(commonConfig, {
             options: { configFileName: helpers.root('tsconfig.prod.json') }
           },
           'angular2-template-loader',
-          'angular2-router-loader?aot=true&genDir=dist'
+          'angular2-router-loader?aot=true&genDir=dist/js/app'
         ]
       },
     ]
@@ -54,6 +55,11 @@ module.exports = webpackMerge.smart(commonConfig, {
       htmlLoader: {
         minimize: false // workaround for ng2
       }
+    }),
+
+    new HtmlWebpackPlugin({
+      template: helpers.root('test', 'index.html'),
+      filename: helpers.root('dist', 'index.html')
     })
   ]
 });

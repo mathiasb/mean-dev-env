@@ -9,11 +9,14 @@ import { User } from './models';
 
 @Injectable()
 export class WebApiService {
+  private production_host:string;
   private paypal_url:string;
   private base_url:string;
 
   constructor(private http:Http) {
-    this.base_url = (!/localhost/.test(document.location.host)) ? '/' : 'http://localhost:4001/'
+    this.production_host = 'https://immense-crag-31097.herokuapp.com/'
+    this.base_url = (!/localhost/.test(document.location.host)) ?
+      this.production_host : 'http://localhost:4001/'
     this.paypal_url = 'https://api.paypal.com';
   }
 
